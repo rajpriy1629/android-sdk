@@ -111,6 +111,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 <service android:name="com.notikum.notifypassive.services.GCMIntentService"/>
 <service android:name="com.notikum.notifypassive.services.NotiphiService"/>
 <service android:name="com.notikum.notifypassive.services.GCMInformService"/>
+<service android:name="com.notikum.notifypassive.NotiphiClusterSyncIntentService"/>
 <service android:name="com.notikum.notifypassive.services.NotificationInformService"/>
 <service android:name="com.notikum.notifypassive.services.SendBulkDataIntentService"/>
 ```
