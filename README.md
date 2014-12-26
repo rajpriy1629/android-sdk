@@ -86,25 +86,14 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 <uses-permission android:name="YOUR_PACKAGE_NAME.permission.C2D_MESSAGE" />
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
 3) Notiphi Service and Receivers: Please add the following xml fragment into AndroidManifest.xml under <application> tag and replace **YOUR_PACKAGE_NAME** with your application’s package name
 
 ```
-<receiver android:name="com.notikum.notifypassive.receivers.LocationAlertReceiver"
-     android:enabled="true"
-     android:exported="true">
-</receiver>
-<receiver android:name="com.notikum.notifypassive.receivers.BootCompleteReceiver">
-    <intent-filter>
-    		<action android:name="android.intent.action.BOOT_COMPLETED" />
-    </intent-filter>
-</receiver>
 <receiver android:name="com.notikum.notifypassive.services.NotiphiGCMMessageReceiver"
     android:permission="com.google.android.c2dm.permission.SEND">
     <intent-filter>
@@ -122,9 +111,6 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 <service android:name="com.notikum.notifypassive.services.GCMIntentService"/>
 <service android:name="com.notikum.notifypassive.services.NotiphiService"/>
 <service android:name="com.notikum.notifypassive.services.GCMInformService"/>
-<service android:name="com.notikum.notifypassive.NewApiActivityRecognization"/>
-<service android:name="com.notikum.notifypassive.NotiphiClusterSyncIntentService"/>
-<service android:name="com.notikum.notifypassive.services.DiscardedNotificationService"/>
 <service android:name="com.notikum.notifypassive.services.NotificationInformService"/>
 <service android:name="com.notikum.notifypassive.services.SendBulkDataIntentService"/>
 ```
