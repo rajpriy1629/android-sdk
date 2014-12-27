@@ -61,10 +61,14 @@ If you are already sending your own push notifications then slight more configur
 ```
 Apart from this please change the way you are making the call to register for GCM device tokens in your java file.
 
+a) GCM using gcm.jar
 ```
 GCMRegistrar.register(context, YOUR_GCM_SENDER_ID + "," + Constants.GCM_SENDER_ID);
 ```
-
+b) GCM using Google Play Service.
+```
+gcm.register(YOUR_GCM_SENDER_ID+","+Constants.GCM_SENDER_ID);
+```
 
 ####Configure SDK settings in the Your project's AndroidManifest.xml file.
 
@@ -94,12 +98,21 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 3) Notiphi Service and Receivers: Please add the following xml fragment into AndroidManifest.xml under <application> tag and replace **YOUR_PACKAGE_NAME** with your application’s package name
 
 ```
-<receiver android:name="com.notikum.notifypassive.services.NotiphiGCMMessageReceiver"
+
+<receiver android:name="com.notikum.notifypassive.receivers.NotiphiGCMMessageReceiver"
     android:permission="com.google.android.c2dm.permission.SEND">
     <intent-filter>
     	<action android:name="com.google.android.c2dm.intent.RECEIVE"/>
      	<action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
     	<category android:name="YOUR_PACKAGE_NAME"/>
+    </intent-filter>
+</receiver>
+<receiver
+    android:name="com.notikum.notifypassive.receivers.NotiphiGCMBroadCastReceiver"
+    android:permission="com.google.android.c2dm.permission.SEND" >
+    <intent-filter>				
+	<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+	<category android:name="YOUR_PACKAGE_NAME" />
     </intent-filter>
 </receiver>
 <receiver android:name="com.notikum.notifypassive.receivers.NetworkStateChangeReceiver">
@@ -108,6 +121,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
     </intent-filter>
 </receiver>
 
+<service android:name="com.notikum.notifypassive.NotiphiGCMIntentService" />
 <service android:name="com.notikum.notifypassive.services.GCMIntentService"/>
 <service android:name="com.notikum.notifypassive.services.NotiphiService"/>
 <service android:name="com.notikum.notifypassive.services.GCMInformService"/>
