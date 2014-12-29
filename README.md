@@ -310,7 +310,7 @@ why we need each of these permissions.
      </tr>
      
      <tr>
-        <td>"android.permission.ACCESS_FINE_LOCATION"
+        <td>"android.permission.ACCESS_COARSE_LOCATION"
         </td>
         <td>Required to access your location.
         </td>
