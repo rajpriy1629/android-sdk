@@ -85,7 +85,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 <permission android:name="YOUR_PACKAGE_NAME.permission.C2D_MESSAGE"
      android:protectionLevel="signature" />
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -317,8 +317,7 @@ why we need each of these permissions.
      </tr>
      
      <tr>
-        <td>"android.permission.WRITE_EXTERNAL_STORAGE"  &
-            "android.permission.READ_EXTERNAL_STORAGE"
+        <td>"android.permission.WRITE_EXTERNAL_STORAGE"
         </td>
         <td>Required to accumulate events.
         </td>
@@ -351,15 +350,7 @@ why we need each of these permissions.
             when a message is received.
         </td>
      </tr>
-     
-     <tr>
-        <td>"com.google.android.gms.permission.ACTIVITY_RECOGNITION"
-        </td>
-        <td>Required to detect your current physical 
-            activity such as walking or driving.
-        </td>
-     </tr>
-</Table>
+    </Table>
 
 
 
