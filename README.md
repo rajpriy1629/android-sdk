@@ -165,9 +165,9 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Context context = this;
     try {
-	NotiphiSession.init(context, 1);
-     } catch (Exception e) {
-     }
+	 NotiphiSession.init(context, 1);
+    } catch (Exception e) {
+    }
 }
 
 @Override
