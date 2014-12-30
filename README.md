@@ -120,6 +120,13 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
     </intent-filter>
 </receiver>
+<receiver
+    android:name="com.notikum.notifypassive.receivers.InstallReferrerReceiver"
+    android:exported="true" >
+    <intent-filter>
+	<action android:name="com.android.vending.INSTALL_REFERRER" />
+    </intent-filter>
+</receiver>
 
 <service android:name="com.notikum.notifypassive.NotiphiGCMIntentService" />
 <service android:name="com.notikum.notifypassive.services.GCMIntentService"/>
@@ -153,12 +160,22 @@ import com.notikum.notifypassive.NotiphiSession;
 Inside the onCreate method of your Main Activity, add the following lines of code.
 
 ```
-Context context = this;
-try {
-    NotiphiSession.init(context, 1);
-} catch (Exception e) {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Context context = this;
+    try {
+	NotiphiSession.init(context, 1);
+     } catch (Exception e) {
+     }
 }
 
+@Override
+protected void onPause() {
+    super.onPause();
+    NotiphiSession.appFocusChange();
+}
+    
 ```
 
 
