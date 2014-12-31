@@ -19,7 +19,7 @@ This guide will provide you step by step details on how to integrate the SDK in 
     c) [App Events.](#app-events)      
     d) [Crash Events.](#crash-events)     
 
-[Notiphi permission requirements](#notiphi-permission-requirements)
+[Uninstall permission requirements](#uninstall-permission-requirements)
 
 ####Setup
 
@@ -50,8 +50,8 @@ Go to your project's root folder and open res folder. Then open values folder. H
 The app_token and app_secret is provided by us on registration of your app with us. As of now there is no online process and you need to contact us at dev-support@notiphi.com to get these.
 
 ```
-<string name="notiphi_app_token">TOKEN_GIVEN_BY_NOTIPHI_SEPARATELY</string>
-<string name="notiphi_app_secret">APP_SECRET_GIVEN_BY_NOTIPHI_SEPARATELY</string>
+<string name="Uninstall_app_token">TOKEN_GIVEN_BY_UNINSTALL_SEPARATELY</string>
+<string name="Uninstall_app_secret">APP_SECRET_GIVEN_BY_UNINSTALL_SEPARATELY</string>
 ```
 
 If you are already sending your own push notifications then slight more configuration is required. Please add the following line to string.xml file of your project
@@ -74,7 +74,7 @@ gcm.register(YOUR_GCM_SENDER_ID+","+Constants.GCM_SENDER_ID);
 
 After adding the JARs into your project, modify your AndroidManifest.xml file using these steps:
 
-1) Android Version: Set the minimum android SDK version to 10  or higher. Notiphi library will not work if minimum android SDK version is less than 10.
+1) Android Version: Set the minimum android SDK version to 10  or higher. Uninstall library will not work if minimum android SDK version is less than 10.
 
 ```
 <uses-sdk android:minSdkVersion="10" />
@@ -95,7 +95,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-3) Notiphi Service and Receivers: Please add the following xml fragment into AndroidManifest.xml under <application> tag and replace **YOUR_PACKAGE_NAME** with your application’s package name
+3) Uninstall Service and Receivers: Please add the following xml fragment into AndroidManifest.xml under <application> tag and replace **YOUR_PACKAGE_NAME** with your application’s package name
 
 ```
 
@@ -185,7 +185,7 @@ protected void onPause() {
 Pass the Unique User ID assigned by your backend system to our SDK. Also pass the email (if available) to our SDK. This data will be used to synchronize the ID’s between our systems and also to take relevant actions. This information has to be passed only once in the lifetime of the app and not everytime. Please refer code snippet below to do the same. 
 
 ```
-SharedPreferences sharedPreferences = getSharedPreferences("Notiphi", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getSharedPreferences("UNINSTALL", Context.MODE_PRIVATE);
 boolean isFirstTimeInstall = sharedPreferences.getBoolean("isFirstTimeInstall", true);
 if (isFirstTimeInstall) {
     try {
@@ -213,7 +213,7 @@ In case you do not use any 3rd party platform or the platform doesn’t support 
 Help code snippet below.
 
 ```
-SharedPreferences sharedPreferences = getSharedPreferences("Notiphi", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getSharedPreferences("UNINSTALL", Context.MODE_PRIVATE);
 boolean isFirstSourceData = sharedPreferences.getBoolean("isFirstSourceData", true);
 if (isFirstSourceData) {
     try {
@@ -255,7 +255,7 @@ Send the API keys of the crash reporting platform to us. We will extract the inf
 Help code snippet below.
 
 ```
-SharedPreferences sharedPreferences = getSharedPreferences("Notiphi", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getSharedPreferences("UNINSTALL", Context.MODE_PRIVATE);
 boolean isFirstReportData = sharedPreferences.getBoolean("isFirstReportData", true);
 if (isFirstReportData) {
     try {
@@ -273,7 +273,7 @@ editor.commit();
 
 You are done with event capture implementation, now events from your app will be captured.
 
-####Notiphi permission requirements
+####UNINSTALL permission requirements
 
 Our SDK requires the following permissions in order to function correctly. We have outlined the reasons 
 why we need each of these permissions. 
@@ -373,7 +373,7 @@ why we need each of these permissions.
 
 #### Authors and Contributors
 
-This library owes its existence to the hard work of @Notiphi Team.
+This library owes its existence to the hard work of @UNINSTALL Team.
 
 #### Support or Contact
 
